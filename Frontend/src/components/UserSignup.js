@@ -25,22 +25,27 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     if (firstName.length < 2 || firstName.length > 20) {
+      setLoading(false);
       toast.error("First Name must be between 2 and 20 characters.");
       return;
     }
     if (lastName.length < 2 || lastName.length > 20) {
+      setLoading(false);
       toast.error("Last Name must be between 2 and 20 characters.");
       return;
     }
     if (userName.length < 3 || userName.length > 20) {
+      setLoading(false);
       toast.error("User Name must be between 3 and 20 characters.");
       return;
     }
     if (email.length < 3 || email.length > 50) {
+      setLoading(false);
       toast.error("Email must be between 3 and 50 characters.");
       return;
     }
     if (!validatePassword(password)) {
+      setLoading(false);
       toast.error(
         "Password must be 8-20 characters long, include at least one special character, and one uppercase character."
       );
